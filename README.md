@@ -9,3 +9,4 @@ Google Cloud BigQueryML Prediction Model
 - Pub/Sub
 - Monitoring
 - User Interface
+- CI/CD
