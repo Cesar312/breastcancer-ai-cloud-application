@@ -18,3 +18,5 @@ steps:
       - '--allow-unauthenticated'
 images:
   - 'gcr.io/bigquery-wk4/project-prediction-app'
+options:
+  logging: CLOUD_LOGGING_ONLY
