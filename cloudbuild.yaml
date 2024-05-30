@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/bigquery-wk4/project-prediction-app', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/bigquery-wk4/project-prediction-app']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: 
+      - 'run'
+      - 'deploy'
+      - 'project-prediction-app'
+      - '--image' 
+      - 'gcr.io/bigquery-wk4/project-prediction-app', '--platform' 
+      - 'managed' 
+      - '--region'
+      - 'us-central1'
+      - '--allow-unauthenticated'
+images:
+  - 'gcr.io/bigquery-wk4/project-prediction-app'

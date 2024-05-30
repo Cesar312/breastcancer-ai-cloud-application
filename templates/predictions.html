@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Prediction Results</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Record ID</th>
+                    <th>Predicted Label</th>
+                    <th>Predicted Probability</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.Record_Id }}</td>
+                    <td>{{ row.predicted_label }}</td>
+                    <td>{{ row.probability }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button onclick="window.location.href='{{ url_for('upload_file') }}'">Make Another Prediction</button>
+        </div>
+    
+    </div>
+</body>
+
+</html>

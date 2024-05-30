@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <title>Upload File</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Upload File</h1>
+        <form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file-upload" class="custom-file-upload">
+                    Choose File
+                </label>
+                <input id="file-upload" type="file" name="file" onchange="updateFileName()">
+                <span id="file-name"></span>
+            </div>
+            <input id="upload-button" type="submit" value="Upload" class="button" disabled />
+        </form>
+    </div>
+
+    <script>
+        function updateFileName() {
+            var input = document.getElementById('file-upload');
+            var fileName = input.files[0] ? input.files[0].name : '';
+            document.getElementById('file-name').textContent = fileName;
+            document.getElementById('upload-button').disabled = !fileName;
+        }
+    </script>
+</body>
+
+</html>
